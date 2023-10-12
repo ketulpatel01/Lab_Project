@@ -11,7 +11,7 @@ int swap(int *x, int *y)
 }
 int main ()
 {
-  int a=10, b=20;
+  int a=5, b=3;
   printf("Before Swap a => %d && b => %d\n",a,b);
   swap(&a,&b);
   return 0;
