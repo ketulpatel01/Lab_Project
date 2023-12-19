@@ -6,3 +6,9 @@
 #C++ Multiprocessor Project
 
 ![image](https://github.com/ketulpatel01/Lab_Project/assets/142900179/debfeb49-9a92-4dc2-b330-8604a2aea8be)
+
+
+#C++ Terminator Project
+
+![image](https://github.com/ketulpatel01/Lab_Project/assets/142900179/77ceb45d-fed3-4099-8e51-2e3f927846c2)
+![image](https://github.com/ketulpatel01/Lab_Project/assets/142900179/2d00e581-910a-41bc-819a-17167c2646b8)
