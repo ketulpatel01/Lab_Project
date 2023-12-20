@@ -1,0 +1,278 @@
+// Q1 Write "HELLO WORLD" in c++ without quotes=>1
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    cout<<"HELLO WORLD";
+    return 0;
+}
+
+
+// Q2 Given a 2-D array find the average =>4  {{50,90,18},{12,56,20},{9,8,6}}
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int array[3][3][3]={{50,90,18},{12,56,20},{9,8,6}};
+    float total=0;
+    
+    for(int i=0; i<3; i++)
+    {
+        for(int j=0; j<i+ 1; j++)
+        {
+            for(int k=0; k<3; k++)
+            {
+                //cout<<array[i][j][k]<< " ";
+                total+=array[i][j][k];
+            }
+        }
+    }
+    cout<<"Average: "<<total/9;
+    return 0;
+}
+
+
+// Q3 Write a Program to create a class to read and add two distances.=>10
+#include <iostream>
+using namespace std;
+
+class Distance{
+    public:
+    int feet, inch;
+    void set(int feet, int inch)
+    {
+        this->feet=feet;
+        this->inch=inch;
+        
+        if(this->inch > 12)
+        {
+            this->feet+=this->inch/12 ;
+            this->inch%=12;
+        }
+    }
+    void get()
+    {
+        cout << this->feet << " feet\t" << this->inch << " inch";
+    }
+    Distance operator+(Distance x)
+    {
+        Distance temp;
+        temp.feet=this->feet+x.feet;
+        temp.inch=this->inch+x.inch;
+        return temp;
+    }
+};
+
+int main()
+{
+    Distance d1,d2,d3;
+    d1.set(8,16);
+    d2.set(4,14);
+    d3=d1+d2;
+    d3.get();
+    return 0;
+}
+
+
+// Q4 Write a Program to read and print Employee information with the use of Multilevel inheritance. (as same the attached image)=>10
+#include <iostream>
+using namespace std;
+
+class A
+{
+public:
+    int id;
+    char name[50], role[50];
+    void setdata1()
+    {
+        cout << "Enter Employe name:- ";
+        cin >> name;
+        cout << "Enter Employe id:- ";
+        cin >> id;
+        cout << "Enter Employe role:- ";
+        cin >> role;
+    }
+};
+class B : public A
+{
+public:
+    int salary, experience;
+    void setdata2()
+    {
+        cout << "Enter Employe salary:- ";
+        cin >> salary;
+        cout << "Enter Employe experience:- ";
+        cin >> experience;
+    }
+};
+class C : public B
+{
+public:
+    char comp_name[100], address[100];
+    void setdata3()
+    {
+        cout << "Enter Employe company name:- ";
+        cin >> comp_name;
+        cout << "Enter Employe company address:- ";
+        cin >> address;
+    }
+    void getdata()
+    {
+        cout << "---------------------------------" << endl;
+        cout << "Employe Details " << endl;
+        cout << "Employe Name: " << name << endl;
+        cout << "Employe Role: " << role << endl;
+        cout << "Employe Salary: " << salary << endl;
+        cout << "---------------------------------" << endl;
+    }
+};
+class D : public C
+{
+public:
+    int contant;
+    char email[50];
+    void setdata4()
+    {
+        cout << "Enter Employe contant number:- ";
+        cin >> contant;
+        cout << "Enter Employe email:- ";
+        cin >> email;
+    }
+    void getdata2()
+    {
+        cout << "---------------------------------" << endl;
+        cout << "Employe Id: " << id << endl;
+        cout << "Employe Name: " << name << endl;
+        cout << "Employe Role: " << role << endl;
+        cout << "Employe Salary: " << salary << endl;
+        cout << "Employe Experience: " << experience << endl;
+        cout << "Employe Company Name: " << comp_name << endl;
+        cout << "Employe Address: " << address << endl;
+        cout << "Employe Email: " << email << endl;
+        cout << "Employe Contant Number: " << contant << endl;
+        cout << "---------------------------------" << endl;
+    }
+};
+
+int main()
+{
+    D d1;
+    d1.setdata1();
+    d1.setdata2();
+    d1.setdata3();
+    d1.getdata();
+    d1.setdata4();
+    d1.getdata2();
+    return 0;
+}
+
+
+// Q5  Write a Program to create  that illustrates the concept of handling all types of exceptions using general exceptions.=>10
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a=20, b=10;
+    try{
+        if(b==0)
+            throw b;
+        else
+            cout<< "Division:- "<< a/b;
+    }
+    catch(int x){
+        cout<<"It will show only if throw return 'int' datatype";
+    }
+    catch(double x){
+        cout<<"It will show only if throw return 'double' datatype";
+    }
+    catch(char x){
+        cout<<"It will show only if throw return 'char' datatype";
+    }
+    catch(...){
+        cout<<"Invalid deno";
+    }
+    return 0;
+}
+
+
+// Q.7 Write a Program to make Supermarket Billing System.=>15
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+class Product{
+  public:
+  int itemno[3], itemprice[3], itemquantity[3], itemdiscount[3],a;
+  string itemname[3];
+  
+  void value(){
+  itemno[0]=1;    itemname[0]="Apple";    itemquantity[0]=5;    itemprice[0]=15;   itemdiscount[0]=2;
+  itemno[1]=2;    itemname[1]="Banana";    itemquantity[1]=5;    itemprice[1]=5;   itemdiscount[1]=1;
+  }
+  void set()
+  {
+    cout<<"Enter item number: ";
+    cin>>itemno[2];
+    cout<<"Enter item name: ";
+    cin>>itemname[2];
+    cout<<"Enter item quantity available: ";
+    cin>>itemquantity[2];
+    cout<<"Enter item price: ";
+    cin>>itemprice[2];
+    cout<<"Enter item discount: ";
+    cin>>itemdiscount[2];
+  }
+  void get()
+  {
+    cout<<"------------------------------"<<endl;
+    cout<<"All record:-"<<endl;
+    for(int i=0; i<3; i++)
+    {
+        cout<<"Enter item number: "<<itemno[i]<<endl;
+        cout<<"Enter item name: "<<itemname[i]<<endl;
+        cout<<"Enter item quantity available: "<<itemquantity[i]<<endl;
+        cout<<"Enter item price per piece: "<<itemprice[i]<<endl;
+        cout<<"Enter item discount per piece: "<<itemdiscount[i]<<endl;
+        cout<<"------------------------------"<<endl;
+    }
+    cout<<"IF you want to see only 1 product, Enetr product number=1 "<<endl;
+    cout<<"Enter item number: "<<itemno[0]<<endl;
+    cout<<"Enter item name: "<<itemname[0]<<endl;
+    cout<<"Enter item quantity available: "<<itemquantity[0]<<endl;
+    cout<<"Enter item price per piece: "<<itemprice[0]<<endl;
+    cout<<"Enter item discount per piece: "<<itemdiscount[0]<<endl;
+    cout<<"------------------------------"<<endl;
+  }
+};
+
+class User: public Product{
+  public:
+  int userid=1, userpwd=1234, uid, upwd;
+  void setid()
+  {
+    cout<<"Enter your User Id: ";
+    cin >>uid;
+    cout<<"Enter your User Password: ";
+    cin >>upwd;
+    if(userid == uid && userpwd == upwd)
+    {
+        set();
+    }
+    else
+    {
+        cout<<"Invalid id or password, so you can only see record "<<endl;
+    }
+  }
+  
+};
+int main()
+{
+    User p1;
+    p1.value();
+    p1.setid();
+    p1.get();
+    return 0;
+}
